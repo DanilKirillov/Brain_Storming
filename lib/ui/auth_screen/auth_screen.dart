@@ -38,7 +38,9 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
               return Column(
                 children: [
                   Spacer(),
-                  _buildLogo(),
+                 /* _buildLogo(),*/
+                  _background,
+
                   SizedBox(height: 32.0),
                   _buildForm(isProceed),
                   SizedBox(height: 8.0),
@@ -49,25 +51,12 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                           child: ShimmerItem(height: 36.0, width: 144.0, radius: 2.0)),
                     ),
                   if (!isProceed)
-                    ElevatedButton(onPressed: wm.acceptAction, child: Text('Авторизоваться')),
+                    ElevatedButton(onPressed: wm.acceptAction, child: Text('LOGIN')),
                   SizedBox(height: 16.0),
                   Spacer(),
                 ],
               );
             }));
-  }
-
-  Widget _buildLogo() {
-    return Align(
-      child: Container(
-        height: 104.0,
-        width: 104.0,
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('asset/image/gear_logo.png'), fit: BoxFit.cover),
-          borderRadius: BorderRadius.circular(8.0),
-        ),
-      ),
-    );
   }
 
   Widget _buildForm(bool isProceed) {
@@ -83,7 +72,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                 controller: wm.loginTextController,
                 autofocus: true,
                 enabled: !isProceed,
-                decoration: InputDecoration(labelText: 'Логин'),
+                decoration: InputDecoration(labelText: 'Email | Mobile telephone'),
                 textInputAction: TextInputAction.next,
                 validator: loginValidator,
               ),
@@ -94,6 +83,11 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
       ),
     );
   }
+  Widget _background = new Container(
+    child: new Image.asset('asset/image/auth_logo.png',
+      fit: BoxFit.fill, // I thought this would fill up my Container but it doesn't
+    ),
+  );
 
   Widget _buildPassField(bool isProceed) {
     return StreamedStateBuilder<bool>(
@@ -105,7 +99,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
               controller: wm.passTextController,
               enabled: !isProceed,
               decoration: InputDecoration(
-                labelText: 'Пароль',
+                labelText: 'Password or SMS code',
                 suffixIcon: GestureDetector(
                   child: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
                   onTap: wm.passObscureToggleAction,
@@ -117,6 +111,8 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
               validator: passValidator,
             ),
           );
+
         });
   }
 }
+

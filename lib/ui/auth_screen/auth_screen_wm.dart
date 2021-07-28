@@ -70,11 +70,11 @@ class AuthScreenWidgetModel extends WidgetModel {
 }
 
 String? loginValidator(String? value) {
-  if (value == null || value.length <= 2) return 'логин дб не менее 2 символов';
+  if (value == null || value.length <= 2) return 'login must be at least 2 characters';
   return null;
 }
 
 String? passValidator(String? value) {
-  if (value == null || value.length <= 3) return 'пароль дб не менее 3 символов';
+  if (value == null || value.length <= 3) return 'password must be at least 3 characters';
   return null;
 }
