@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'MWWM Demo',
-      theme: ThemeData(
+        theme: ThemeData(
         primarySwatch: Colors.blue,
         inputDecorationTheme: InputDecorationTheme(
           contentPadding: const EdgeInsets.fromLTRB(16.0, 6.0, 16.0, 14.0),

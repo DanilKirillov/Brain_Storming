@@ -39,7 +39,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                 children: [
                   Spacer(),
                  /* _buildLogo(),*/
-                  _background,
+                //  _background,
 
                   SizedBox(height: 32.0),
                   _buildForm(isProceed),
@@ -51,7 +51,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                           child: ShimmerItem(height: 36.0, width: 144.0, radius: 2.0)),
                     ),
                   if (!isProceed)
-                    ElevatedButton(onPressed: wm.acceptAction, child: Text('LOGIN')),
+                    ElevatedButton(onPressed: wm.acceptAction, child: Text('Let s Go Go')),
                   SizedBox(height: 16.0),
                   Spacer(),
                 ],
@@ -72,7 +72,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                 controller: wm.loginTextController,
                 autofocus: true,
                 enabled: !isProceed,
-                decoration: InputDecoration(labelText: 'Email | Mobile telephone'),
+                decoration: InputDecoration(labelText: 'Email || Mobile telephone'),
                 textInputAction: TextInputAction.next,
                 validator: loginValidator,
               ),
@@ -83,11 +83,11 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
       ),
     );
   }
-  Widget _background = new Container(
-    child: new Image.asset('asset/image/auth_logo.png',
-      fit: BoxFit.fill, // I thought this would fill up my Container but it doesn't
-    ),
-  );
+//  Widget _background = new Container(
+//    child: new Image.asset('asset/image/auth_logo.png',
+//     fit: BoxFit.fill, // I thought this would fill up my Container but it doesn't
+//    ),
+//  );
 
   Widget _buildPassField(bool isProceed) {
     return StreamedStateBuilder<bool>(

@@ -70,7 +70,7 @@ class AuthScreenWidgetModel extends WidgetModel {
 }
 
 String? loginValidator(String? value) {
-  if (value == null || value.length <= 2) return 'login must be at least 2 characters';
+  if (value == null || value.length <= 2) return 'Email must be at @ symbol';
   return null;
 }
 
