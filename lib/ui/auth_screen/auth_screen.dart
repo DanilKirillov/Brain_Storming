@@ -51,7 +51,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                           child: ShimmerItem(height: 36.0, width: 144.0, radius: 2.0)),
                     ),
                   if (!isProceed)
-                    ElevatedButton(onPressed: wm.acceptAction, child: Text('Let s Go Go')),
+                    ElevatedButton(onPressed: wm.acceptAction, child: Text('Go Go Go')),
                   SizedBox(height: 16.0),
                   Spacer(),
                 ],
@@ -72,7 +72,7 @@ class _AuthScreenState extends WidgetState<AuthScreen, AuthScreenWidgetModel> {
                 controller: wm.loginTextController,
                 autofocus: true,
                 enabled: !isProceed,
-                decoration: InputDecoration(labelText: 'Email || Mobile telephone'),
+                decoration: InputDecoration(labelText: 'Email or Mobile telephone'),
                 textInputAction: TextInputAction.next,
                 validator: loginValidator,
               ),
